@@ -6,7 +6,7 @@
 /*   By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 01:00:03 by slombard          #+#    #+#             */
-/*   Updated: 2023/07/02 18:39:34 by slombard         ###   ########.fr       */
+/*   Updated: 2023/06/17 23:18:41 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int	main(int argc, char **argv)
 {
-	char	**str_arr;
-	t_stack	stack_a;
-	t_stack	stack_b;
+	char		**str_arr;
+	t_stack		stack_a;
+	t_stack		stack_b;
+	int			i;
 
 	stack_a.size = 0;
 	stack_b.size = 0;
@@ -31,19 +32,22 @@ int	main(int argc, char **argv)
 		ft_count_sort(&stack_a, &stack_b);
 	else
 		ft_small_sort(&stack_a);
+	i = 0;
+	while (str_arr[i])
+		free(str_arr[i++]);
+	free(str_arr);
 	free(stack_a.stack);
 	free(stack_b.stack);
-	return (0);
 }
 
 int	ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
 {
 	int	i;
 
-	stack_a->stack = malloc(sizeof(int) * stack_a->size);
+	stack_a->stack = ft_calloc(stack_a->size, sizeof(int));
 	if (!stack_a->stack)
 		return (0);
-	stack_b->stack = malloc(sizeof(int) * stack_a->size);
+	stack_b->stack = ft_calloc(stack_a->size, sizeof(int));
 	if (!stack_b->stack)
 		return (0);
 	i = 0;
@@ -70,7 +74,7 @@ int	ft_find_next_smallest(int to_insert, int *stack, int size)
 			next_smallest = stack[i + 1];
 		i++;
 	}
-	if (stack[size - 1] > to_insert && stack[0] < to_insert)
+	if (size > 0 && stack[size - 1] > to_insert && stack[0] < to_insert)
 		next_smallest = stack[0];
 	return (next_smallest);
 }

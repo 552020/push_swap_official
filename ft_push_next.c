@@ -34,7 +34,7 @@ void	ft_push_next(t_stack *stack_a, t_stack *stack_b, t_next next)
 }
 
 void	ft_push_next_rr(t_stack *stack_a, t_stack *stack_b,
-	t_next next, int next_smallest)
+					t_next next, int next_smallest)
 {
 	while (stack_a->stack[0] != next.value
 		|| stack_b->stack[0] != next_smallest)
@@ -51,7 +51,7 @@ void	ft_push_next_rr(t_stack *stack_a, t_stack *stack_b,
 }
 
 void	ft_push_next_rrr(t_stack *stack_a, t_stack *stack_b,
-	t_next next, int next_smallest)
+					t_next next, int next_smallest)
 {
 	while (stack_a->stack[0] != next.value
 		|| stack_b->stack[0] != next_smallest)
@@ -69,7 +69,7 @@ void	ft_push_next_rrr(t_stack *stack_a, t_stack *stack_b,
 }
 
 void	ft_push_next_ra_rrb(t_stack *stack_a, t_stack *stack_b,
-			t_next next, int next_smallest)
+						t_next next, int next_smallest)
 {
 	while (stack_a->stack[0] != next.value)
 		ft_ra(stack_a->stack, stack_a->size);

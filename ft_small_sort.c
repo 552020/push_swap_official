@@ -17,6 +17,8 @@ void	ft_small_sort(t_stack *stack_a)
 	int	smallest;
 	int	largest;
 
+	if ((*stack_a).size == 1)
+		return ;
 	largest = ft_find_highest(stack_a->stack, stack_a->size);
 	smallest = ft_find_smallest(stack_a->stack, stack_a->size);
 	if (stack_a->stack[0] == largest && stack_a->stack[1] == smallest)
@@ -53,6 +55,6 @@ void	ft_medium_sort(t_stack *stack_a, t_stack *stack_b)
 		i++;
 	}
 	ft_small_sort(stack_a);
-	ft_pb (stack_b->stack, &stack_b->size, stack_a->stack, &stack_a->size);
-	ft_pb (stack_b->stack, &stack_b->size, stack_a->stack, &stack_a->size);
+	ft_pb(stack_b->stack, &stack_b->size, stack_a->stack, &stack_a->size);
+	ft_pb(stack_b->stack, &stack_b->size, stack_a->stack, &stack_a->size);
 }
