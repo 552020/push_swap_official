@@ -12,6 +12,16 @@
 
 #include "push_swap.h"
 
+int	ft_find_idx_number_new(t_stack *stack, int number)
+{
+	int	i;
+
+	i = 0;
+	while (number != stack->stack[i])
+		i++;
+	return (i);
+}
+
 void	ft_small_sort(t_stack *stack_a)
 {
 	int	smallest;
@@ -43,18 +53,22 @@ void	ft_small_sort(t_stack *stack_a)
 void	ft_medium_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	smallest;
-	int	i;
+	int	idx_smallest;
 
-	i = 0;
-	while (i < 2)
+	while (stack_a->size > 3)
 	{
 		smallest = ft_find_smallest(stack_a->stack, stack_a->size);
+		idx_smallest = ft_find_idx_number_new(stack_a, smallest);
 		while (stack_a->stack[0] != smallest)
-			ft_ra(stack_a->stack, stack_a->size);
-		ft_pb(stack_a->stack, &stack_a->size, stack_b->stack, &stack_b->size);
-		i++;
+		{
+			if (idx_smallest <= stack_a->size / 2)
+				ft_ra(stack_a->stack, stack_a->size);
+			else if (idx_smallest > stack_a->size / 2)
+				ft_rra(stack_a->stack, stack_a->size);
+		}
+		ft_pb(stack_b->stack, &stack_b->size, stack_a->stack, &stack_a->size);
 	}
 	ft_small_sort(stack_a);
-	ft_pb(stack_b->stack, &stack_b->size, stack_a->stack, &stack_a->size);
-	ft_pb(stack_b->stack, &stack_b->size, stack_a->stack, &stack_a->size);
+	while (stack_b->size > 0)
+		ft_pa(stack_a->stack, &stack_a->size, stack_b->stack, &stack_b->size);
 }
