@@ -56,6 +56,7 @@ int	ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
 		stack_a->stack[i] = ft_atol(str_arr[i]);
 		i++;
 	}
+	is_sorted(stack_a);
 	return (1);
 }
 
