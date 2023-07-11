@@ -12,18 +12,18 @@
 
 #include "push_swap.h"
 
-int	ft_sneak_duplicate(char **argv)
+int	ft_sneak_duplicate(char **str_arr)
 {
 	int	i;
 	int	j;
 
 	i = 1;
-	while (argv[i])
+	while (str_arr[i])
 	{
 		j = 1;
-		while (argv[j])
+		while (str_arr[j])
 		{
-			if (j != i && ft_num_str_cmp(argv[i], argv[j]) == 0)
+			if (j != i && ft_num_str_cmp(str_arr[i], str_arr[j]) == 0)
 				return (1);
 			j++;
 		}
