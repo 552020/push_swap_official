@@ -2,8 +2,8 @@
 
 # Variables
 TIMES_TO_RUN=20  # The number of times the program runs
-MIN_ARG_SIZE=5  # The minimum size of the ARG string of numbers
-MAX_ARG_SIZE=11  # The maximum size of the ARG string of numbers
+MIN_ARG_SIZE=2  # The minimum size of the ARG string of numbers
+MAX_ARG_SIZE=5  # The maximum size of the ARG string of numbers
 MIN_NUM=-50  # The minimum number in the range
 MAX_NUM=50  # The maximum number in the range
 KO_SUMMARY=""  # Stores the summary of 'KO' outputs
