@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 		return (0);
 	if (stack_a.size > 3 && stack_a.size < 6)
 		ft_medium_sort(&stack_a, &stack_b);
-	else if (stack_a.size > 3)
+	else if (stack_a.size >= 6)
 		ft_count_sort(&stack_a, &stack_b);
 	else
 		ft_small_sort(&stack_a);
